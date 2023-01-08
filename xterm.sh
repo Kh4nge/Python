@@ -1,3 +1,2 @@
 #!/bin/bash
-sudo xterm
-sudo ./wifi_sniffer.sh
+gnome-terminal --full-screen --hide-menubar -- /bin/bash -l -c "sh wifi_sniffer.sh"
