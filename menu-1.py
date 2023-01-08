@@ -4,11 +4,12 @@ import subprocess as subprocess
 
 screen = Tk()
 #screen.title("Main Page")
-#screen.attributes("-fullscreen, True")
-screen.geometry("200x170")
+
+screen.geometry("400x350")
 screen.configure(bg="#463E3F")
 
 b1 = Button(screen, text="REBOOT", command=lambda: sub.call('./reboot.sh'))
-b1.pack(side=TOP, pady=5)
+b1.pack()
 
+screen.wm_attributes("-fullscreen", "True")
 screen.mainloop()
