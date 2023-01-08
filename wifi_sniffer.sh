@@ -1,5 +1,5 @@
 #!/bin/bash
 
-xterm & 
+sudo xterm & 
 sleep 5
 echo "Qualche comando da eseguire!"
