@@ -3,7 +3,8 @@ from tkinter.ttk import Button
 import subprocess as subprocess
 
 screen = Tk()
-screen.title("Main Page")
+#screen.title("Main Page")
+screen.attributes("-fullscreen, True")
 screen.geometry("200x170")
 screen.configure(bg="#463E3F")
 
