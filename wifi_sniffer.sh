@@ -2,4 +2,4 @@
 
 xterm & 
 sleep 5
-echo "Qualche comando da eseguire"
+echo "Qualche comando da eseguire!"
