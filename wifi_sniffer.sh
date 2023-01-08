@@ -1,4 +1,5 @@
 #!/bin/bash
 
-sudo xfce4-terminal & 
+xterm & 
 sleep 5
+echo "Qualche comando da eseguire"
