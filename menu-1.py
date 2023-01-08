@@ -8,8 +8,10 @@ screen = Tk()
 screen.geometry("400x350")
 screen.configure(bg="#463E3F")
 
-b1 = Button(screen, text="REBOOT", command=lambda: sub.call('./reboot.sh'))
+b1 = Button(screen, text="WiFi-Sniffer", command=lambda: sub.call('./wifi_sniffer.sh'))
 b1.pack()
 
-screen.wm_attributes("-fullscreen", "True")
+b2 = Button(screen, text="Reboot OS", command=lambda: sub.call('./reboot.sh'))
+b2.pack()
+
 screen.mainloop()
