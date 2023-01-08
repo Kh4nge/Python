@@ -1,4 +1,4 @@
 #!/bin/bash
 
-xfce4-terminal & 
+sudo xfce4-terminal & 
 sleep 5
