@@ -1,6 +1,6 @@
 from tkinter import Tk, mainloop, TOP
 from tkinter.ttk import Button
-import subprocess as subprocess
+import subprocess as sub
 
 screen = Tk()
 #screen.title("Main Page")
