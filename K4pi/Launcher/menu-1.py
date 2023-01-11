@@ -20,7 +20,7 @@ b1.place(x=0, y=0, width=120, height=80)
 l1 = tk.Label(root, text="GB - Launcher for Rapsberry", bg="black", fg="white")
 l1.place(x=120, y=0, width=360, height=80)
 
-b2 = tk.Button(root, text="WiFi-Sniffer", bg="black", fg="white", command=lambda: Popen('menu-sniffer.py'), activeforeground="black", activebackground="#00ff5f")
+b2 = tk.Button(root, text="WiFi-Sniffer", bg="black", fg="white", command=lambda: os.system('python3 menu-sniffer.py'), activeforeground="black", activebackground="#00ff5f")
 b2.place(x=0, y=80, width=240, height=160)
 
 b3 = tk.Button(root, text="Altro", bg="black", fg="white", activeforeground="black", activebackground="#00ff5f")

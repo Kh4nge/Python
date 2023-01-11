@@ -23,6 +23,8 @@ print (time)
 #Functions for button
 def b2_command():
     wifi_newfile.newfile_run(t1, time)
+def b3_command():
+    wifi_start.start_run(t1)
 
 # Create output text Campo
 t1 = Text(root, bg="black", fg="white")
@@ -34,7 +36,7 @@ b1.place(x=0, y=0, width=120, height=80)
 b2 = tk.Button(root, text="1. New-File", bg="black", fg="white", command=b2_command, activeforeground="black", activebackground="#00ff5f")
 b2.place(x=0, y=80, width=120, height=80)
 
-b3 = tk.Button(root, text="2. Start", bg="black", fg="white", command=lambda: Popen('wifi_start.py'), activeforeground="black", activebackground="#00ff5f")
+b3 = tk.Button(root, text="2. Start", bg="black", fg="white", command=b3_command, activeforeground="black", activebackground="#00ff5f")
 b3.place(x=0, y=160, width=120, height=80)
 
 b4 = tk.Button(root, text="Stop", bg="black", fg="white", command=root.destroy, activeforeground="black", activebackground="#00ff5f")

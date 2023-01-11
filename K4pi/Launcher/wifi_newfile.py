@@ -12,7 +12,7 @@ def process(x, cmd, text):
     process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     output, error = process.communicate()
     x.config(state=NORMAL)
-    x.delete("1.0", END)
+    #x.delete("1.0", END)
     x.insert("1.0", text_print)
     x.insert("1.0", output.decode())
     x.config(state=DISABLED)
@@ -26,23 +26,27 @@ def newfile_run(y, time):
         subprocess.call(['mkdir', "-p", folder_path])
         subprocess.call(['chmod', '777', folder_path])
         print(f"K4pi >>> The folder {folder_path} has been created.")
-        text = "K4pi >>> The folder " + folder_path + " has been created."
-        process(y, "2>/dev/null", text)
+        text1 = "K4pi >>> The folder has been created.       "
+        process(y, "2>/dev/null", text1)
         #Create a File
-        text = "K4pi >>> File " + time + ".txt has been created"
+        text2 = "K4pi >>> File " + time + ".txt create!       "
         dumpfile = time + ".pcapng"
-        process(y, "touch /home/" + user + "/dumpfile/" + dumpfile, text)
-        text = "---------------------------------"
-        process(y, "2>/dev/null", text)
+        process(y, "touch /home/" + user + "/dumpfile/" + dumpfile, text2)
+        text3 = "                                            "
+        process(y, "2>/dev/null", text3)
     else:
         print(f"K4pi >>> The folder {folder_path} already exists")
-        text = "K4pi >>> The folder " + folder_path + " already exists"
+        text1 = "K4pi >>> The folder already exists          "
+        process(y, "2>/dev/null", text1)
         #Create a File
-        text = "K4pi >>> File " + time + ".txt has been created"
+        #K4pi >>> File " + time + ".txt create!       "
+        #--------------------------------------------- row K4pi >>> for terminal
+        #
+        text2 = "K4pi >>> File " + time + ".txt create!       "
         dumpfile = time + ".pcapng"
-        process(y, "touch /home/" + user + "/dumpfile/" + dumpfile, text)
-        text = "---------------------------------"
-        process(y, "2>/dev/null", text) 
+        process(y, "touch /home/" + user + "/dumpfile/" + dumpfile, text2)
+        text3 = "                                            "
+        process(y, "2>/dev/null", text3) 
 
 def newfile_clear(y):
     process(y, "cat wifi_start.py")

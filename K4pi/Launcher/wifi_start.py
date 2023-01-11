@@ -21,7 +21,7 @@ def start_run(y):
     wifi_newfile.process(y, "systemctl stop NetworkManager.service", text)
     text = "K4pi >>> Stop wpa_supplicant.service"
     wifi_newfile.process(y, "systemctl stop wpa_supplicant.service", text)
-    text = "---------------------------------"
+    text = "                                            "
     wifi_newfile.process(y, "2>/dev/null", text)
     text = "K4pi >>> START SCANNER"
     wifi_newfile.process(y, "/home/Kh4nge/Script/GBLauncher/Python/K4pi/hcxdumptool/hcxdumptool -i wlan1 -o " + wifi_newfile.dumpfile + " --active_beacon --enable_status=15", text)
