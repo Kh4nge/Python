@@ -18,9 +18,9 @@ sudo systemctl start wpa_supplicant.service
 
 def start_run(y):
     text = "K4pi >>> Stop NetworkManager.service"
-    wifi_newfile.process(y, "systemctl stop NetworkManager.service", text)
+    wifi_newfile.process(y, "sudo systemctl stop NetworkManager.service", text)
     text = "K4pi >>> Stop wpa_supplicant.service"
-    wifi_newfile.process(y, "systemctl stop wpa_supplicant.service", text)
+    wifi_newfile.process(y, "sudo systemctl stop wpa_supplicant.service", text)
     text = "                                            "
     wifi_newfile.process(y, "2>/dev/null", text)
     text = "K4pi >>> START SCANNER"
