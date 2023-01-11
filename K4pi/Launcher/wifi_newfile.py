@@ -37,7 +37,12 @@ def newfile_run(y, time):
     else:
         print(f"K4pi >>> The folder {folder_path} already exists")
         text = "K4pi >>> The folder " + folder_path + " already exists"
-        process(y, "2>/dev/null", text)   
+        #Create a File
+        text = "K4pi >>> File " + time + ".txt has been created"
+        dumpfile = time + ".pcapng"
+        process(y, "touch /home/" + user + "/dumpfile/" + dumpfile, text)
+        text = "---------------------------------"
+        process(y, "2>/dev/null", text) 
 
 def newfile_clear(y):
     process(y, "cat wifi_start.py")
