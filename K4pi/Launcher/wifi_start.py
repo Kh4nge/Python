@@ -5,6 +5,7 @@ import tkinter as tk
 from tkinter import *
 import os
 import wifi_newfile
+from menu-sniffer import b2_command
 import psutil
 
 """
@@ -23,7 +24,7 @@ def start_run(y):
     text2 = "                                            "
     wifi_newfile.process(y, "2>/dev/null", text2)
     text3 = "K4pi >>> START SCANNER. Press Stop in 5 min."
-    wifi_newfile.process(y, "/home/Kh4nge/Script/GBLauncher/Python/K4pi/hcxdumptool/hcxdumptool -i wlan1 -o " + wifi_newfile.dumpfile + " --active_beacon --enable_status=15", text3)
+    wifi_newfile.process(y, "/home/Kh4nge/Script/GBLauncher/Python/K4pi/hcxdumptool/hcxdumptool -i wlan1 -o " + b2_command + " --active_beacon --enable_status=15", text3)
     #find ID hcxdumptool process
     for process in psutil.process_iter():
         if process.name() == "hcxdumptool":

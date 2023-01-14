@@ -37,6 +37,7 @@ time = current_time.strftime("%m%d%H%M%S")
 
 def b2_command():
     wifi_newfile.newfile_run(t1, time)
+    print (b2_command)
 def b3_command():
     wifi_start.start_run(t1)
 

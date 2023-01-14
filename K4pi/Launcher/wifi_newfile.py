@@ -18,6 +18,7 @@ def process(x, cmd, text):
     x.config(state=DISABLED)
     
 def newfile_run(y, time):
+    global dumpfile
     #Create a Folder
     user = getpass.getuser()
     folder_path = ("/home/" + user + "/dumpfile")
@@ -46,5 +47,5 @@ def newfile_run(y, time):
         dumpfile = time + ".pcapng"
         process(y, "touch /home/" + user + "/dumpfile/" + dumpfile, text2)
         text3 = "                                            "
-        process(y, "2>/dev/null", text3) 
+        process(y, "2>/dev/null", text3)
     return dumpfile
