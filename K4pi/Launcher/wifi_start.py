@@ -26,7 +26,7 @@ def start_run(y):
     wifi_newfile.process(y, "/home/Kh4nge/Script/GBLauncher/Python/K4pi/hcxdumptool/hcxdumptool -i wlan1 -o " + wifi_newfile.dumpfile + " --active_beacon --enable_status=15", text3)
     #find ID hcxdumptool process
     for process in psutil.process_iter():
-    if process.name() == "hcxdumptool":
-        pid = process.pid
-        break
+        if process.name() == "hcxdumptool":
+            pid = process.pid
+            break
     print("PID of hcxdumptool:", pid)
