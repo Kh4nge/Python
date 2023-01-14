@@ -29,7 +29,7 @@ def newfile_run(y, time):
         text1 = "K4pi >>> The folder has been created.       "
         process(y, "2>/dev/null", text1)
         #Create a File
-        text2 = "K4pi >>> File " + time + ".txt create!       "
+        text2 = "K4pi >>> File " + time + ".pcapng create!       "
         dumpfile = time + ".pcapng"
         process(y, "touch /home/" + user + "/dumpfile/" + dumpfile, text2)
         text3 = "                                            "
@@ -47,3 +47,4 @@ def newfile_run(y, time):
         process(y, "touch /home/" + user + "/dumpfile/" + dumpfile, text2)
         text3 = "                                            "
         process(y, "2>/dev/null", text3) 
+    return dumpfile
