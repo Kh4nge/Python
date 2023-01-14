@@ -5,23 +5,28 @@ import tkinter as tk
 from tkinter import *
 import os
 import wifi_newfile
+import psutil
 
 """
 Comandi:
 sudo systemctl stop NetworkManager.service
 sudo systemctl stop wpa_supplicant.service
 iwconfig
-sudo hcxdumptool -i wlan1 -o dumpfile.pcapng --active_beacon --enable_status=15
-sudo systemctl start NetworkManager.service
-sudo systemctl start wpa_supplicant.service 
+sudo hcxdumptool -i wlan1 -o dumpfile.pcapng --active_beacon --enable_status=15 
 """
 
 def start_run(y):
-    text = "K4pi >>> Stop NetworkManager.service"
+    text = "K4pi >>> Stop NetworkManager.service        "
     wifi_newfile.process(y, "sudo systemctl stop NetworkManager.service", text)
-    text = "K4pi >>> Stop wpa_supplicant.service"
-    wifi_newfile.process(y, "sudo systemctl stop wpa_supplicant.service", text)
-    text = "                                            "
-    wifi_newfile.process(y, "2>/dev/null", text)
-    text = "K4pi >>> START SCANNER"
-    wifi_newfile.process(y, "/home/Kh4nge/Script/GBLauncher/Python/K4pi/hcxdumptool/hcxdumptool -i wlan1 -o " + wifi_newfile.dumpfile + " --active_beacon --enable_status=15", text)
+    text1 = "K4pi >>> Stop wpa_supplicant.service        "
+    wifi_newfile.process(y, "sudo systemctl stop wpa_supplicant.service", text1)
+    text2 = "                                            "
+    wifi_newfile.process(y, "2>/dev/null", text2)
+    text3 = "K4pi >>> START SCANNER. Press Stop in 5 min."
+    wifi_newfile.process(y, "/home/Kh4nge/Script/GBLauncher/Python/K4pi/hcxdumptool/hcxdumptool -i wlan1 -o " + wifi_newfile.dumpfile + " --active_beacon --enable_status=15", text3)
+    #find ID hcxdumptool process
+    for process in psutil.process_iter():
+    if process.name() == "hcxdumptool":
+        pid = process.pid
+        break
+    print("PID of hcxdumptool:", pid)

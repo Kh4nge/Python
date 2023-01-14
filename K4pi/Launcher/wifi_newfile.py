@@ -47,6 +47,3 @@ def newfile_run(y, time):
         process(y, "touch /home/" + user + "/dumpfile/" + dumpfile, text2)
         text3 = "                                            "
         process(y, "2>/dev/null", text3) 
-
-def newfile_clear(y):
-    process(y, "cat wifi_start.py")

@@ -20,7 +20,7 @@ root = tk.Tk()
 root.title("WiFi Page")
 root.geometry("480x320")
 root.configure(bg="#463E3F")
-#root.attributes("-fullscreen", True)
+root.attributes("-fullscreen", True)
 
 image = Image.open("desk2.jpg")
 photo = ImageTk.PhotoImage(image)
@@ -29,8 +29,7 @@ label.configure(background='black')
 label.place(x=0, y=0, width=480, height=320)
 
 current_time = datetime.now()
-time = current_time.strftime("%m%d-%H%M%S")
-print (time)
+time = current_time.strftime("%m%d%H%M%S")
 
 #--------------------------------------
 # Button Function's

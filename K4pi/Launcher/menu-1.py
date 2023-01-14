@@ -15,7 +15,7 @@ root = tk.Tk()
 root.title("Main Page")
 root.geometry("480x320")
 root.configure(bg="#463E3F")
-#root.attributes("-fullscreen", True)
+root.attributes("-fullscreen", True)
 
 image = Image.open("desk1.jpg")
 photo = ImageTk.PhotoImage(image)
