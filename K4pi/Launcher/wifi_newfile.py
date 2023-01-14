@@ -6,6 +6,8 @@ from tkinter import *
 import os
 import getpass
 
+dumpfile_text = 0
+
 def process(x, cmd, text):
     command = str(cmd)
     text_print = str(text)
@@ -18,7 +20,7 @@ def process(x, cmd, text):
     x.config(state=DISABLED)
     
 def newfile_run(y, time):
-    global dumpfile
+    global dumpfile_text
     #Create a Folder
     user = getpass.getuser()
     folder_path = ("/home/" + user + "/dumpfile")
@@ -32,6 +34,7 @@ def newfile_run(y, time):
         #Create a File
         text2 = "K4pi >>> File " + time + ".pcapng create!       "
         dumpfile = time + ".pcapng"
+        dumpfile_text = str(dumpfile)
         process(y, "touch /home/" + user + "/dumpfile/" + dumpfile, text2)
         text3 = "                                            "
         process(y, "2>/dev/null", text3)
@@ -48,4 +51,4 @@ def newfile_run(y, time):
         process(y, "touch /home/" + user + "/dumpfile/" + dumpfile, text2)
         text3 = "                                            "
         process(y, "2>/dev/null", text3)
-    return dumpfile
+    return dumpfile_text
