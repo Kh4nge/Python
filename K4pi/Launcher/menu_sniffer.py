@@ -40,6 +40,8 @@ def b2_command():
     print (b2_command)
 def b3_command():
     wifi_start.start_run(t1)
+def b4_command():
+    wifi_stop.stop_run(t1)
 
 #--------------------------------------
 # Configuration buttons and Text label
@@ -63,7 +65,7 @@ b3.config(font=("Encode Sans SemiExpanded", 20))
 b3.configure(highlightthickness=0)
 b3.place(x=4, y=162, width=114, height=76)
 
-b4 = tk.Button(root, text="Stop", bg="black", fg="white", command=root.destroy, activeforeground="black", activebackground="#00ff5f")
+b4 = tk.Button(root, text="Stop", bg="black", fg="white", command=b4_command, activeforeground="black", activebackground="#00ff5f")
 b4.config(font=("Encode Sans SemiExpanded", 20))
 b4.configure(highlightthickness=0)
 b4.place(x=4, y=242, width=114, height=74)
