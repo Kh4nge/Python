@@ -5,7 +5,7 @@ import tkinter as tk
 from tkinter import *
 import os
 import wifi_newfile
-import common
+#import common
 import psutil
 
 """
