@@ -23,6 +23,7 @@ def start_run(y):
     wifi_newfile.process(y, "sudo systemctl stop wpa_supplicant.service", text1)
     text2 = "                                            "
     wifi_newfile.process(y, "2>/dev/null", text2)
+    """
     text3 = "K4pi >>> START SCANNER. Press Stop in 5 min."
     wifi_newfile.process(y, "/home/Kh4nge/Script/GBLauncher/Python/K4pi/hcxdumptool/hcxdumptool -i wlan1 -o " + common.menu_start + " --active_beacon --enable_status=15", text3)
     #find ID hcxdumptool process
@@ -31,3 +32,11 @@ def start_run(y):
             pid = process.pid
             break
     print("PID of hcxdumptool:", pid)
+    """
+    command = "ls -l"
+    process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
+    output, error = process.communicate()
+    terminal = Tk()
+    xterm = Xterm(terminal)
+    xterm.feed(output)
+    terminal.mainloop()
