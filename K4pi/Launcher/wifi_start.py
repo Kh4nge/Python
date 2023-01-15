@@ -46,5 +46,9 @@ def start_run(y):
     text.insert(INSERT, "Process completed!")
     terminal.mainloop()
     """
+    new_window = tk.Toplevel(root)
+    new_window.geometry("354x312")
+    new_window.title("xterm")
+    new_window.place(x=122, y=4, width=354, height=312)
     command = "xterm -hold -e sudo /home/Kh4nge/Script/GBLauncher/Python/K4pi/hcxdumptool/hcxdumptool -i wlan1 -o test1.pcapng --active_beacon --enable_status=15"
     subprocess.run(command, shell=True)
