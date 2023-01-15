@@ -46,5 +46,5 @@ def start_run(y):
     text.insert(INSERT, "Process completed!")
     terminal.mainloop()
     """
-    command = "xterm -e /home/Kh4nge/Script/GBLauncher/Python/K4pi/hcxdumptool/hcxdumptool -i wlan1 -o test1.pcapng --active_beacon --enable_status=15"
+    command = "xterm -e /home/Kh4nge/Script/GBLauncher/Python/K4pi/hcxdumptool/hcxdumptool -i wlan1 -o test1.pcapng --active_beacon --enable_status=15 -hold"
     subprocess.run(command, shell=True)
