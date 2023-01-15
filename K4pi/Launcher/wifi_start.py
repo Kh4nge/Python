@@ -34,15 +34,14 @@ def start_run(y):
     print("PID of hcxdumptool:", pid)
     """
     command = "/home/Kh4nge/Script/GBLauncher/Python/K4pi/hcxdumptool/hcxdumptool -i wlan1 -o test1.pcapng --active_beacon --enable_status=15"
-    process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
+    process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, bufsize=1)
     terminal = Tk()
     text = Text(terminal)
     text.pack()
-    while process.poll() is None:
-        output = process.stdout.readline()
-        text.insert(INSERT, output)
+    for line in iter(process.stdout.readline, b''):
+        text.insert(INSERT, line)
         text.see(END)
         terminal.update()
-
+    process.communicate()
     text.insert(INSERT, "Process completed!")
     terminal.mainloop()
