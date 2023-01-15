@@ -48,6 +48,6 @@ def start_run(y):
     """
     text3 = "K4pi >>> START SCANNER.                     "
     wifi_newfile.process(y, "2>/dev/null", text3)
-    command = "xterm -hold -geometry 354x312+122+4 -border 0 -e sudo /home/Kh4nge/Script/GBLauncher/Python/K4pi/hcxdumptool/hcxdumptool -i wlan1 -o test1.pcapng --active_beacon --enable_status=15"
+    command = "sudo terminator --borderless -geometry 354x312+122+4 -e sudo /home/Kh4nge/Script/GBLauncher/Python/K4pi/hcxdumptool/hcxdumptool -i wlan1 -o test1.pcapng --active_beacon --enable_status=15; sleep infinity"
     process = subprocess.run(command, shell=True)
 
