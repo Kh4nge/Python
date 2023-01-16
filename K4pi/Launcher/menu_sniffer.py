@@ -14,7 +14,7 @@ import common
 #import wifi_start
 #import wifi_stop
 
-dumpfile_text = 0
+dumpfile = 0
 
 #-----------------------------------------------------------------------#
 #                Configuration Windows, Image, Time                     #
@@ -65,7 +65,5 @@ text1 = "K4pi >>> Please create a new file.           "
 common.process(t1, "2>/dev/null", text1)
 text2 = "                                            "
 common.process(t1, "2>/dev/null", text2) 
-
-dumpfile = common.b2_command()
 
 root.mainloop()
