@@ -122,14 +122,14 @@ def stop_run(y, dump):
 #-----------------------------------------------------------------------#
 
 def b2_command():
-    dumpfile = newfile_run(t1, time)
-    print (dumpfile)
+    dumpfile1 = newfile_run(t1, time)
+    print (dumpfile1)
 def b3_command():
-    dumpfile = newfile_run(t1, time)
-    start_run(t1, dumpfile)
+    dumpfile2 = newfile_run(t1, time)
+    start_run(t1, dumpfile2)
 def b4_command():
-    dumpfile = newfile_run(t1, time)
-    stop_run(t1, dumpfile)
+    dumpfile3 = newfile_run(t1, time)
+    stop_run(t1, dumpfile3)
 
 #-----------------------------------------------------------------------#
 #                Configuration buttons and Text label                   #
