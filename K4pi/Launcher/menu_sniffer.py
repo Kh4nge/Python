@@ -66,7 +66,6 @@ def newfile_run(y, time):
         #Create a File
         text2 = "K4pi >>> File " + time + ".pcapng create!       "
         dumpfile = time + ".pcapng"
-        dumpfile_text = str(dumpfile)
         process(y, "touch /home/" + user + "/dumpfile/" + dumpfile, text2)
         text3 = "                                            "
         process(y, "2>/dev/null", text3)
@@ -80,7 +79,7 @@ def newfile_run(y, time):
         process(y, "touch /home/" + user + "/dumpfile/" + dumpfile, text2)
         text3 = "                                            "
         process(y, "2>/dev/null", text3)
-    return dumpfile_text
+    return dumpfile
 
 #---------------------------------------------------------------------#
 #                            wifi_start                               #
@@ -118,25 +117,17 @@ def stop_run(y, dump):
     process(y, "sudo systemctl start wpa_supplicant.service", text4)
 
 #-----------------------------------------------------------------------#
-#                          Button Function's                            #
-#-----------------------------------------------------------------------#
-
-def b2_command():
-    dumpfile1 = newfile_run(t1, time)
-    print (dumpfile1)
-def b3_command():
-    dumpfile2 = newfile_run(t1, time)
-    start_run(t1, dumpfile2)
-def b4_command():
-    dumpfile3 = newfile_run(t1, time)
-    stop_run(t1, dumpfile3)
-
-#-----------------------------------------------------------------------#
 #                Configuration buttons and Text label                   #
 #-----------------------------------------------------------------------#
 
 t1 = Text(root, bg="black", fg="white")
 t1.place(x=122, y=4, width=354, height=312)
+
+def b2_command():
+    dumpfile = newfile_run(t1, time)
+    return dumpfile
+
+dumpfile = b2_command()
 
 b1 = tk.Button(root, text="CLOSE", bg="black", fg="white", command=root.destroy, activeforeground="black", activebackground="red")
 b1.config(font=("Encode Sans SemiExpanded", 18))
@@ -148,12 +139,12 @@ b2.config(font=("Encode Sans SemiExpanded", 15))
 b2.configure(highlightthickness=0)
 b2.place(x=4, y=82, width=114, height=76)
 
-b3 = tk.Button(root, text="Start", bg="black", fg="white", command=b3_command, activeforeground="black", activebackground="#00ff5f")
+b3 = tk.Button(root, text="Start", bg="black", fg="white", command=start_run(t1, dumpfile), activeforeground="black", activebackground="#00ff5f")
 b3.config(font=("Encode Sans SemiExpanded", 20))
 b3.configure(highlightthickness=0)
 b3.place(x=4, y=162, width=114, height=76)
 
-b4 = tk.Button(root, text="Stop", bg="black", fg="white", command=b4_command, activeforeground="black", activebackground="#00ff5f")
+b4 = tk.Button(root, text="Stop", bg="black", fg="white", command=stop_run(t1, dumpfile), activeforeground="black", activebackground="#00ff5f")
 b4.config(font=("Encode Sans SemiExpanded", 20))
 b4.configure(highlightthickness=0)
 b4.place(x=4, y=242, width=114, height=74)
