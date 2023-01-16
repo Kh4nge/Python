@@ -9,7 +9,7 @@ from datetime import datetime
 from PIL import Image, ImageTk
 import getpass
 import psutil
-import common
+from common import process, newfile_run, start_run, stop_run, b2_command
 #import wifi_newfile
 #import wifi_start
 #import wifi_stop
@@ -46,24 +46,24 @@ b1.config(font=("Encode Sans SemiExpanded", 18))
 b1.configure(highlightthickness=0)
 b1.place(x=4, y=4, width=114, height=74)
     
-b2 = tk.Button(root, text="New-File", bg="black", fg="white", command=common.b2_command, activeforeground="black", activebackground="#00ff5f")
+b2 = tk.Button(root, text="New-File", bg="black", fg="white", command=b2_command, activeforeground="black", activebackground="#00ff5f")
 b2.config(font=("Encode Sans SemiExpanded", 15))
 b2.configure(highlightthickness=0)
 b2.place(x=4, y=82, width=114, height=76)
 
-b3 = tk.Button(root, text="Start", bg="black", fg="white", command=common.start_run(t1, dumpfile), activeforeground="black", activebackground="#00ff5f")
+b3 = tk.Button(root, text="Start", bg="black", fg="white", command=start_run(t1, dumpfile), activeforeground="black", activebackground="#00ff5f")
 b3.config(font=("Encode Sans SemiExpanded", 20))
 b3.configure(highlightthickness=0)
 b3.place(x=4, y=162, width=114, height=76)
 
-b4 = tk.Button(root, text="Stop", bg="black", fg="white", command=common.stop_run(t1, dumpfile), activeforeground="black", activebackground="#00ff5f")
+b4 = tk.Button(root, text="Stop", bg="black", fg="white", command=stop_run(t1, dumpfile), activeforeground="black", activebackground="#00ff5f")
 b4.config(font=("Encode Sans SemiExpanded", 20))
 b4.configure(highlightthickness=0)
 b4.place(x=4, y=242, width=114, height=74)
 
 text1 = "K4pi >>> Please create a new file.           "
-common.process(t1, "2>/dev/null", text1)
+process(t1, "2>/dev/null", text1)
 text2 = "                                            "
-common.process(t1, "2>/dev/null", text2) 
+process(t1, "2>/dev/null", text2) 
 
 root.mainloop()

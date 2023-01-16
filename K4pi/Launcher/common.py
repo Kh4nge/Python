@@ -65,7 +65,7 @@ def newfile_run(y, time):
 #---------------------------------------------------------------------#
 
 def start_run_process(dump):
-        command = "sudo terminator --borderless --geometry 354x312+122+4 -e 'sudo /home/Kh4nge/Script/GBLauncher/Python/K4pi/hcxdumptool/hcxdumptool -i wlan1 -o "+ dump +" --active_beacon --enable_status=15'"
+        command = "sudo terminator --borderless --geometry 354x312+122+4 -e 'sudo /home/Kh4nge/Script/GBLauncher/Python/K4pi/hcxdumptool/hcxdumptool -i wlan1 -o "+ str(dump) +" --active_beacon --enable_status=15'"
         return subprocess.run(command, shell=True)
 
 def start_run(y, dump):
