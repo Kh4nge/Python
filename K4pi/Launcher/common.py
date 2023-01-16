@@ -10,6 +10,8 @@ from PIL import Image, ImageTk
 import getpass
 import psutil
 
+dumpfile = 0
+
 #-----------------------------------------------------------------------#
 #                          Process Functions                            #
 #-----------------------------------------------------------------------#
@@ -92,3 +94,8 @@ def stop_run(y, dump):
     process(y, "sudo systemctl start NetworkManager.service", text3)
     text4 = "K4pi >>> Start wpa_supplicant.service       "
     process(y, "sudo systemctl start wpa_supplicant.service", text4)
+
+
+def b2_command():
+    dumpfile = newfile_run(t1, time)
+    return dumpfile

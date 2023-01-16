@@ -41,18 +41,12 @@ time = current_time.strftime("%m%d%H%M%S")
 t1 = Text(root, bg="black", fg="white")
 t1.place(x=122, y=4, width=354, height=312)
 
-def b2_command():
-    dumpfile = common.newfile_run(t1, time)
-    return dumpfile
-
-dumpfile = b2_command()
-
 b1 = tk.Button(root, text="CLOSE", bg="black", fg="white", command=root.destroy, activeforeground="black", activebackground="red")
 b1.config(font=("Encode Sans SemiExpanded", 18))
 b1.configure(highlightthickness=0)
 b1.place(x=4, y=4, width=114, height=74)
     
-b2 = tk.Button(root, text="New-File", bg="black", fg="white", command=b2_command, activeforeground="black", activebackground="#00ff5f")
+b2 = tk.Button(root, text="New-File", bg="black", fg="white", command=common.b2_command, activeforeground="black", activebackground="#00ff5f")
 b2.config(font=("Encode Sans SemiExpanded", 15))
 b2.configure(highlightthickness=0)
 b2.place(x=4, y=82, width=114, height=76)
@@ -71,5 +65,7 @@ text1 = "K4pi >>> Please create a new file.           "
 common.process(t1, "2>/dev/null", text1)
 text2 = "                                            "
 common.process(t1, "2>/dev/null", text2) 
+
+dumpfile = common.b2_command()
 
 root.mainloop()
