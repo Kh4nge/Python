@@ -46,7 +46,7 @@ b1.config(font=("Encode Sans SemiExpanded", 18))
 b1.configure(highlightthickness=0)
 b1.place(x=4, y=4, width=114, height=74)
     
-b2 = tk.Button(root, text="New-File", bg="black", fg="white", command=lambda: b2_command, activeforeground="black", activebackground="#00ff5f")
+b2 = tk.Button(root, text="New-File", bg="black", fg="white", command=lambda: (dumpfile = newfile_run(t1, time)), activeforeground="black", activebackground="#00ff5f")
 b2.config(font=("Encode Sans SemiExpanded", 15))
 b2.configure(highlightthickness=0)
 b2.place(x=4, y=82, width=114, height=76)
