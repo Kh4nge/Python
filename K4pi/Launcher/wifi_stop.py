@@ -10,7 +10,7 @@ import wifi_start
 stop_process = wifi_start.start_run_process()
 stop_process.terminate()
 
-def stop_run(y):
+def stop_run(y, dump):
     text1 = "                                            "
     wifi_newfile.process(y, "2>/dev/null", text1)
     text2 = "K4pi >>> STOP SCANNER.                      "

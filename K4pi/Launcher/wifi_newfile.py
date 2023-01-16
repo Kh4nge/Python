@@ -20,7 +20,6 @@ def process(x, cmd, text):
     x.config(state=DISABLED)
     
 def newfile_run(y, time):
-    global dumpfile_text
     #Create a Folder
     user = getpass.getuser()
     folder_path = ("/home/" + user + "/dumpfile")

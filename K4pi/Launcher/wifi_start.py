@@ -8,11 +8,11 @@ import wifi_newfile
 #import common
 import psutil
 
-def start_run_process():
-        command = "sudo terminator --borderless --geometry 354x312+122+4 -e 'sudo /home/Kh4nge/Script/GBLauncher/Python/K4pi/hcxdumptool/hcxdumptool -i wlan1 -o test1.pcapng --active_beacon --enable_status=15'"
+def start_run_process(dump):
+        command = "sudo terminator --borderless --geometry 354x312+122+4 -e 'sudo /home/Kh4nge/Script/GBLauncher/Python/K4pi/hcxdumptool/hcxdumptool -i wlan1 -o "+ dump +" --active_beacon --enable_status=15'"
         return subprocess.run(command, shell=True)
 
-def start_run(y):
+def start_run(y, dump):
     text = "K4pi >>> Stop NetworkManager.service        "
     wifi_newfile.process(y, "sudo systemctl stop NetworkManager.service", text)
     text1 = "K4pi >>> Stop wpa_supplicant.service        "
@@ -44,7 +44,7 @@ def start_run(y):
     """
     text3 = "K4pi >>> START SCANNER.                     "
     wifi_newfile.process(y, "2>/dev/null", text3)
-    start_run_process()
+    start_run_process(dump)
     
 
 
