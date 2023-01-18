@@ -9,7 +9,7 @@ from datetime import datetime
 from PIL import Image, ImageTk
 import getpass
 import psutil
-from common import process, newfile_run, start_run, stop_run, b2_command
+from common import process, newfile_run, start_run, stop_run
 #import wifi_newfile
 #import wifi_start
 #import wifi_stop
@@ -66,8 +66,6 @@ process(t1, "2>/dev/null", text1)
 text2 = "                                            "
 process(t1, "2>/dev/null", text2) 
 
-def newfile_run_2(t1, time):
-    dumpfile = newfile_run(t1, time)
-    start_run(t1, dumpfile)
+
 
 root.mainloop()

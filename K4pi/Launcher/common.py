@@ -40,7 +40,7 @@ def newfile_run(y, time):
         subprocess.call(['mkdir', "-p", folder_path])
         subprocess.call(['chmod', '777', folder_path])
         print(f"K4pi >>> The folder {folder_path} has been created.")
-        text1 = "K4pi >>> The folder has been created.       "
+        text1 = "K4pi >>> The folder has been created.           "
         process(y, "2>/dev/null", text1)
         #Create a File
         text2 = "K4pi >>> File " + time + ".pcapng create!       "
@@ -48,6 +48,7 @@ def newfile_run(y, time):
         process(y, "touch /home/" + user + "/dumpfile/" + dumpfile, text2)
         text3 = "                                            "
         process(y, "2>/dev/null", text3)
+        dumppath = "/home/" + user + "/dumpfile/" + dumpfile
     else:
         print(f"K4pi >>> The folder {folder_path} already exists")
         text1 = "K4pi >>> The folder already exists          "
@@ -58,6 +59,10 @@ def newfile_run(y, time):
         process(y, "touch /home/" + user + "/dumpfile/" + dumpfile, text2)
         text3 = "                                            "
         process(y, "2>/dev/null", text3)
+    return dumppath
+
+def newfile_run_2(t1, time):
+    dumpfile = newfile_run(t1, time)
     return dumpfile
 
 #---------------------------------------------------------------------#
@@ -94,8 +99,3 @@ def stop_run(y, dump):
     process(y, "sudo systemctl start NetworkManager.service", text3)
     text4 = "K4pi >>> Start wpa_supplicant.service       "
     process(y, "sudo systemctl start wpa_supplicant.service", text4)
-
-
-def b2_command():
-    dumpfile = newfile_run(t1, time)
-    return dumpfile
