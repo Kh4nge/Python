@@ -73,34 +73,49 @@ root.mainloop()
 """
 
 import os
-import subprocess
 from tkinter import *
+import time
 
-def newfile():
-    os.makedirs("sudo /home/giulio/dumpfile", exist_ok=True)
-    open("sudo touch /home/giulio/dumpfile/dumpfile.pcapng", "w").close()
-    output_label.config(text="File dumpfile.pcapng creato in /home/utente/dumpfile")
+def newfile(current_time):
+    # Crea una cartella con permessi 777
+    folder_name = "dumpfile"
+    os.makedirs(folder_name, 0o777, exist_ok=True)
+    # Crea un file all'interno della cartella con permessi 777
+    file_name = current_time.strftime("%m%d%H%M%S") + ".pcapng"
+    file_path = os.path.join(folder_name, file_name)
+    with open(file_path, "w") as f:
+        pass
+    os.chmod(file_path, 0o777)
 
-def start():
-    subprocess.call(["systemctl", "stop", "NetworkManager.service"])
-    subprocess.call(["systemctl", "stop", "wpa_supplicant.service"])
-    process = subprocess.Popen(["sudo", "terminator", "--borderless", "--geometry", "354x312+122+4", "-e", "sudo /home/Kh4nge/Script/GBLauncher/Python/K4pi/hcxdumptool/hcxdumptool -i wlan1 -o dumpfile.pcapng --active_beacon --enable_status=15"],stdout=subprocess.PIPE,stderr=subprocess.PIPE)
-    stdout,stderr = process.communicate()
-    output_label.config(text=stdout.decode())
+def start(current_time):
+    cmd = "sudo terminator --borderless --geometry 354x312+122+4 -e 'sudo /home/Kh4nge/Script/GBLauncher/Python/K4pi/hcxdumptool/hcxdumptool -i wlan1 -o " + current_time.strftime("%m%d%H%M%S") + ".pcapng --active_beacon --enable_status=15'"
+    os.system(cmd)
 
-def close():
-    subprocess.call(["pkill", "terminator"])
-    output_label.config(text="Terminator chiuso")
+def stop():
+    os.system("pkill -f terminator")
+
+def button_press():
+    current_time = time.strftime("%m%d%H%M%S")
+    if button_var.get() == "Newfile":
+        newfile(current_time)
+    elif button_var.get() == "Start":
+        start(current_time)
+    elif button_var.get() == "Stop":
+        stop()
 
 root = Tk()
-root.title("Dumpfile Generator")
-newfile_button = Button(root, text="Newfile", command=newfile)
-start_button = Button(root, text="Start", command=start)
-close_button = Button(root, text="Close", command=close)
+root.title("Programma")
+
+button_var = StringVar()
+
+newfile_button = Radiobutton(root, text="Newfile", variable=button_var, value="Newfile", command=button_press)
 newfile_button.pack()
+
+start_button = Radiobutton(root, text="Start", variable=button_var, value="Start", command=button_press)
 start_button.pack()
-close_button.pack()
-output_label = Label(root, text="")
-output_label.pack()
+
+stop_button = Radiobutton(root, text="Stop", variable=button_var, value="Stop", command=button_press)
+stop_button.pack()
+
 root.mainloop()
 
