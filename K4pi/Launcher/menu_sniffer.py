@@ -35,7 +35,8 @@ label.place(x=0, y=0, width=480, height=320)
 #                Configuration functions                                #
 #-----------------------------------------------------------------------#
 
-def start(current_time):
+def start():
+    current_time = time.strftime("%m%d%H%M%S")
     folder_name = "/home/Kh4nge/dumpfile/"
     text1 = "K4pi >>> The folder has been created.           "
     process(y, "2>/dev/null", text1)
@@ -73,13 +74,6 @@ def process(x, cmd, text):
     x.insert("1.0", output.decode())
     x.config(state=DISABLED)
 
-def button_press():
-    current_time = time.strftime("%m%d%H%M%S")
-    if button_var.get() == "Start":
-        start(current_time)
-    elif button_var.get() == "Stop":
-        stop()
-
 #-----------------------------------------------------------------------#
 #                Configuration buttons and Text label                   #
 #-----------------------------------------------------------------------#
@@ -94,17 +88,17 @@ b1.config(font=("Encode Sans SemiExpanded", 18))
 b1.configure(highlightthickness=0)
 b1.place(x=4, y=4, width=114, height=74)
     
-b2 = tk.Button(root, text="Start", bg="black", fg="white", variable=button_var, value="Start", command=button_press, activeforeground="black", activebackground="#00ff5f")
-b2.config(font=("Encode Sans SemiExpanded", 15))
+b2 = tk.Button(root, text="Start", bg="black", fg="white", command=lambda: start(), activeforeground="black", activebackground="#00ff5f")
+b2.config(font=("Encode Sans SemiExpanded", 20))
 b2.configure(highlightthickness=0)
 b2.place(x=4, y=82, width=114, height=76)
 
-b3 = tk.Button(root, text="Stop", bg="black", fg="white", variable=button_var, value="Stop", command=button_press, activeforeground="black", activebackground="#00ff5f")
+b3 = tk.Button(root, text="Stop", bg="black", fg="white", command=lambda: stop(), activeforeground="black", activebackground="#00ff5f")
 b3.config(font=("Encode Sans SemiExpanded", 20))
 b3.configure(highlightthickness=0)
 b3.place(x=4, y=162, width=114, height=76)
 
-b4 = tk.Button(root, text="", bg="black")
+b4 = tk.Button(root, text="", bg="black", activeforeground="black", activebackground="#00ff5f")
 b4.config(font=("Encode Sans SemiExpanded", 20))
 b4.configure(highlightthickness=0)
 b4.place(x=4, y=242, width=114, height=74)
