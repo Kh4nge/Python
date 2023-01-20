@@ -76,19 +76,16 @@ import os
 from tkinter import *
 import time
 
-def newfile(current_time):
-    # Crea una cartella con permessi 777
+def start(current_time):
     folder_name = "/home/kali/dumpfile/"
     os.makedirs(folder_name, 0o777, exist_ok=True)
-    # Crea un file all'interno della cartella con permessi 777
     file_name = current_time + ".pcapng"
     file_path = os.path.join(folder_name, file_name)
     with open(file_path, "w") as f:
         pass
     os.chmod(file_path, 0o777)
-
-def start(current_time):
-    cmd = "sudo terminator --borderless --geometry 354x312+122+4 -e 'sudo /home/Kh4nge/Script/GBLauncher/Python/K4pi/hcxdumptool/hcxdumptool -i wlan1 -o " + current_time + ".pcapng --active_beacon --enable_status=15'"
+    cmd = "sudo terminator -e 'ls -la'"
+    #cmd = "sudo terminator --borderless --geometry 354x312+122+4 -e 'sudo /home/Kh4nge/Script/GBLauncher/Python/K4pi/hcxdumptool/hcxdumptool -i wlan1 -o " + file_path + " --active_beacon --enable_status=15'"
     os.system(cmd)
 
 def stop():
@@ -96,9 +93,7 @@ def stop():
 
 def button_press():
     current_time = time.strftime("%m%d%H%M%S")
-    if button_var.get() == "Newfile":
-        newfile(current_time)
-    elif button_var.get() == "Start":
+    if button_var.get() == "Start":
         start(current_time)
     elif button_var.get() == "Stop":
         stop()
@@ -107,9 +102,6 @@ root = Tk()
 root.title("Programma")
 
 button_var = StringVar()
-
-newfile_button = Radiobutton(root, text="Newfile", variable=button_var, value="Newfile", command=button_press)
-newfile_button.pack()
 
 start_button = Radiobutton(root, text="Start", variable=button_var, value="Start", command=button_press)
 start_button.pack()
