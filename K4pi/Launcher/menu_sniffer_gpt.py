@@ -89,7 +89,7 @@ def start(current_time):
     os.system(cmd)
 
 def stop():
-    os.system("pkill -f terminator")
+    os.system("pkill -f gnome-terminal")
 
 def button_press():
     current_time = time.strftime("%m%d%H%M%S")
