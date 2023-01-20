@@ -9,12 +9,6 @@ from datetime import datetime
 from PIL import Image, ImageTk
 import getpass
 import psutil
-from common import process, newfile_run, start_run, stop_run
-#import wifi_newfile
-#import wifi_start
-#import wifi_stop
-
-dumpfile = 0
 
 #-----------------------------------------------------------------------#
 #                Configuration Windows, Image, Time                     #
@@ -30,6 +24,11 @@ photo = ImageTk.PhotoImage(image)
 label = Label(root, image=photo)
 label.configure(background='black')
 label.place(x=0, y=0, width=480, height=320)
+image = Image.open("Kalilogo.jpg")
+photo2 = ImageTk.PhotoImage(image)
+label2 = Label(root, image=photo2)
+label2.configure(background='black')
+label2.place(x=4, y=242, width=114, height=74)
 
 #-----------------------------------------------------------------------#
 #                Configuration functions                                #
@@ -39,7 +38,7 @@ def start():
     timeset = datetime.now()
     current_time = timeset.strftime("%m%d%H%M%S")
     folder_name = "/home/Kh4nge/dumpfile/"
-    text1 = "K4pi >>> The folder has been created.           "
+    text1 = "K4pi >>> Folder create or already exists.         "
     process(t1, "2>/dev/null", text1)
     os.makedirs(folder_name, 0o777, exist_ok=True)
     file_name = current_time + ".pcapng"
@@ -47,7 +46,7 @@ def start():
     with open(file_path, "w") as f:
         pass
     os.chmod(file_path, 0o777)
-    text2 = "K4pi >>> File " + file_name + ".pcapng create!    "
+    text2 = "K4pi >>> File " + file_name + " create.              "
     process(t1, "2>/dev/null", text2)
     os.system("sudo systemctl stop NetworkManager.service")
     os.system("sudo systemctl stop wpa_supplicant.service")
@@ -79,8 +78,6 @@ def process(x, cmd, text):
 #                Configuration buttons and Text label                   #
 #-----------------------------------------------------------------------#
 
-button_var = StringVar()
-
 t1 = Text(root, bg="black", fg="white")
 t1.place(x=122, y=4, width=354, height=312)
 
@@ -98,10 +95,5 @@ b3 = tk.Button(root, text="Stop", bg="black", fg="white", command=lambda: stop()
 b3.config(font=("Encode Sans SemiExpanded", 20))
 b3.configure(highlightthickness=0)
 b3.place(x=4, y=162, width=114, height=76)
-
-b4 = tk.Button(root, text="", bg="black", activeforeground="black", activebackground="#00ff5f")
-b4.config(font=("Encode Sans SemiExpanded", 20))
-b4.configure(highlightthickness=0)
-b4.place(x=4, y=242, width=114, height=74)
 
 root.mainloop()
