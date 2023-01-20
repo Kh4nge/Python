@@ -84,7 +84,7 @@ def start(current_time):
     with open(file_path, "w") as f:
         pass
     os.chmod(file_path, 0o777)
-    cmd = "gnome-terminal --geometry 354x312+122+4 --hide-menubar -e 'bash -c 'ls -la;bash''"
+    cmd = "sudo gnome-terminal --geometry 354x312+122+4 --hide-menubar -- bash -c 'ls -la; bash'"
     #cmd = "sudo terminator --borderless --geometry 354x312+122+4 -e 'sudo /home/Kh4nge/Script/GBLauncher/Python/K4pi/hcxdumptool/hcxdumptool -i wlan1 -o " + file_path + " --active_beacon --enable_status=15'"
     os.system(cmd)
 
