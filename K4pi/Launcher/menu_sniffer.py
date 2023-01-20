@@ -38,7 +38,7 @@ def start():
     timeset = datetime.now()
     current_time = timeset.strftime("%m%d%H%M%S")
     folder_name = "/home/Kh4nge/dumpfile/"
-    text1 = "K4pi >>> Folder create or already exists. "
+    text1 = "K4pi >>> Folder create or already exists.  "
     process(t1, "2>/dev/null", text1)
     os.makedirs(folder_name, 0o777, exist_ok=True)
     file_name = current_time + ".pcapng"
@@ -46,16 +46,16 @@ def start():
     with open(file_path, "w") as f:
         pass
     os.chmod(file_path, 0o777)
-    text2 = "K4pi >>> File " + file_name + " create.   "
+    text2 = "K4pi >>> File " + file_name + " create.    "
     process(t1, "2>/dev/null", text2)
     os.system("sudo systemctl stop NetworkManager.service")
     os.system("sudo systemctl stop wpa_supplicant.service")
-    text3 = "K4pi >>> Stop Network Service!            "
+    text3 = "K4pi >>> Stop Network Service!             "
     process(t1, "2>/dev/null", text3)
     cmd = "sudo gnome-terminal --geometry 354x312+122+4 --hide-menubar -- bash -c 'ls -la; bash'"
     #cmd = "sudo gnome-terminal --geometry 354x312+122+4 --hide-menubar -- bash -c 'sudo /home/Kh4nge/Script/GBLauncher/Python/K4pi/hcxdumptool/hcxdumptool -i wlan1 -o " + file_path + " --active_beacon --enable_status=15'"
     os.system(cmd)
-    text4 = "K4pi >>> START SCANNER.                   "
+    text4 = "K4pi >>> START SCANNER.                    "
     process(t1, "2>/dev/null", text4)
 
 def stop():
