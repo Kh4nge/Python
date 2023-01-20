@@ -1,4 +1,4 @@
-# Python
+# K4pi - Kh4nge Launcher for Raspberry Pi 3 (based on Kali linux)
 Repository K4pi Launcher
 
 Update 10-20-22:
