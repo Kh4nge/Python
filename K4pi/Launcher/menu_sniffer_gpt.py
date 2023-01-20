@@ -78,17 +78,17 @@ import time
 
 def newfile(current_time):
     # Crea una cartella con permessi 777
-    folder_name = "dumpfile"
+    folder_name = "/home/kali/dumpfile/"
     os.makedirs(folder_name, 0o777, exist_ok=True)
     # Crea un file all'interno della cartella con permessi 777
-    file_name = current_time.strftime("%m%d%H%M%S") + ".pcapng"
+    file_name = current_time + ".pcapng"
     file_path = os.path.join(folder_name, file_name)
     with open(file_path, "w") as f:
         pass
     os.chmod(file_path, 0o777)
 
 def start(current_time):
-    cmd = "sudo terminator --borderless --geometry 354x312+122+4 -e 'sudo /home/Kh4nge/Script/GBLauncher/Python/K4pi/hcxdumptool/hcxdumptool -i wlan1 -o " + current_time.strftime("%m%d%H%M%S") + ".pcapng --active_beacon --enable_status=15'"
+    cmd = "sudo terminator --borderless --geometry 354x312+122+4 -e 'sudo /home/Kh4nge/Script/GBLauncher/Python/K4pi/hcxdumptool/hcxdumptool -i wlan1 -o " + current_time + ".pcapng --active_beacon --enable_status=15'"
     os.system(cmd)
 
 def stop():
