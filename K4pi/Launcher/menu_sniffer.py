@@ -36,7 +36,8 @@ label.place(x=0, y=0, width=480, height=320)
 #-----------------------------------------------------------------------#
 
 def start():
-    current_time = time.strftime("%m%d%H%M%S")
+    timeset = datetime.now()
+    current_time = timeset.strftime("%m%d%H%M%S")
     folder_name = "/home/Kh4nge/dumpfile/"
     text1 = "K4pi >>> The folder has been created.           "
     process(y, "2>/dev/null", text1)
