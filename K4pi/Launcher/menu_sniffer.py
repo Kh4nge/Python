@@ -62,6 +62,8 @@ def stop():
     os.system("pkill -f gnome-terminal")
     text = "K4pi >>> STOP SCANNER. Download File       "
     process(t1, "2>/dev/null", text)
+    text2 = "                                           "
+    process(y, "2>/dev/null", text2)
 
 def process(x, cmd, text):
     command = str(cmd)
