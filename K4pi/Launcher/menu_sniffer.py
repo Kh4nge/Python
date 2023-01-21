@@ -53,7 +53,7 @@ def start():
     text3 = "K4pi >>> Stop Network Service!             "
     process(t1, "2>/dev/null", text3)
     #cmd = "sudo gnome-terminal --geometry 354x312+122+4 --hide-menubar -- bash -c 'ls -la; bash'"
-    cmd = "sudo gnome-terminal --geometry 354x312+122+4 --hide-menubar -- bash -c 'sudo /home/Kh4nge/Script/GBLauncher/Python/K4pi/hcxdumptool/hcxdumptool -i wlan1 -o " + file_path + " --active_beacon --enable_status=15'"
+    cmd = "sudo gnome-terminal --geometry 354x312+122+4 --hide-menubar -- bash -c 'sudo /home/Kh4nge/Script/GBLauncher/Python/K4pi/hcxdumptool/hcxdumptool -i wlan1 -o " + file_path + " --active_beacon --enable_status=15; bash'"
     os.system(cmd)
     text4 = "K4pi >>> START SCANNER.                    "
     process(t1, "2>/dev/null", text4)
