@@ -61,8 +61,8 @@ def start():
     text4 = "K4pi >>> START SCANNER.                    "
     process(t1, "2>/dev/null", text4)
     command = str(cmd)
-    process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    output, error = process.communicate()
+    process2 = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    output, error = process2.communicate()
     t1.config(state=NORMAL)
     #x.delete("1.0", END)
     t1.insert("1.0")
