@@ -40,6 +40,7 @@ def start():
     folder_name = "/home/Kh4nge/dumpfile/"
     text1 = "K4pi >>> Folder create or already exists.  "
     process(t1, "2>/dev/null", text1)
+    sleep(1)
     os.makedirs(folder_name, 0o777, exist_ok=True)
     file_name = current_time + ".pcapng"
     file_path = os.path.join(folder_name, file_name)
@@ -60,6 +61,10 @@ def start():
     #os.system(cmd)
     text4 = "K4pi >>> START SCANNER.                    "
     process(t1, "2>/dev/null", text4)
+
+    output = os.system(cmd)
+    t1.config(text=output)
+    """
     command = str(cmd)
     process2 = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     output, error = process2.communicate()
@@ -68,6 +73,7 @@ def start():
     t1.insert("1.0")
     t1.insert("1.0", output.decode())
     t1.config(state=DISABLED)
+    """
 
 
 def stop():
