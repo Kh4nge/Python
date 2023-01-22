@@ -40,7 +40,7 @@ def start():
     folder_name = "/home/Kh4nge/dumpfile/"
     text1 = "K4pi >>> Folder create or already exists.  "
     process(t1, "2>/dev/null", text1)
-    sleep(1)
+    time.sleep(1)
     os.makedirs(folder_name, 0o777, exist_ok=True)
     file_name = current_time + ".pcapng"
     file_path = os.path.join(folder_name, file_name)
@@ -49,10 +49,12 @@ def start():
     os.chmod(file_path, 0o777)
     text2 = "K4pi >>> File " + file_name + " create.    "
     process(t1, "2>/dev/null", text2)
+    time.sleep(1)
     os.system("sudo systemctl stop NetworkManager.service")
     os.system("sudo systemctl stop wpa_supplicant.service")
     text3 = "K4pi >>> Stop Network Service!             "
     process(t1, "2>/dev/null", text3)
+    time.sleep(1)
     #output = os.popen("sudo hcxdumptool -i wlan1 -o "+ file_path +" --active_beacon --enable_status=15;bash").read()
     cmd = "sudo hcxdumptool -i wlan1 -o "+ file_path +" --active_beacon --enable_status=15;bash"
     #cmd = "sudo terminator --borderless --geometry 354x312+122+4 -e 'sudo hcxdumptool -i wlan1 -o "+ file_path +" --active_beacon --enable_status=15;bash'"
