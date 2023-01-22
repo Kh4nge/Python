@@ -52,15 +52,26 @@ def start():
     os.system("sudo systemctl stop wpa_supplicant.service")
     text3 = "K4pi >>> Stop Network Service!             "
     process(t1, "2>/dev/null", text3)
-    cmd = "sudo terminator --borderless --geometry 354x312+122+4 -e 'sudo hcxdumptool -i wlan1 -o "+ file_path +" --active_beacon --enable_status=15;bash'"
+    #output = os.popen("sudo hcxdumptool -i wlan1 -o "+ file_path +" --active_beacon --enable_status=15;bash").read()
+    cmd = "sudo hcxdumptool -i wlan1 -o "+ file_path +" --active_beacon --enable_status=15;bash"
+    #cmd = "sudo terminator --borderless --geometry 354x312+122+4 -e 'sudo hcxdumptool -i wlan1 -o "+ file_path +" --active_beacon --enable_status=15;bash'"
     #cmd = "sudo gnome-terminal --geometry 354x312+122+4 --hide-menubar -- bash -c 'ls -la; bash'"
     #cmd = "sudo gnome-terminal --geometry 354x312+122+4 --hide-menubar -- bash -c 'sudo /home/Kh4nge/Script/GBLauncher/Python/K4pi/hcxdumptool/hcxdumptool -i wlan1 -o " + file_path + " --active_beacon --enable_status=15; bash'"
-    os.system(cmd)
+    #os.system(cmd)
     text4 = "K4pi >>> START SCANNER.                    "
     process(t1, "2>/dev/null", text4)
+    command = str(cmd)
+    process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    output, error = process.communicate()
+    t1.config(state=NORMAL)
+    #x.delete("1.0", END)
+    t1.insert("1.0")
+    t1.insert("1.0", output.decode())
+    t1.config(state=DISABLED)
+
 
 def stop():
-    os.system("pkill -f gnome-terminal")
+    os.system("pkill -f terminator")
     text = "K4pi >>> STOP SCANNER. Download File       "
     process(t1, "2>/dev/null", text)
     text2 = "                                           "
