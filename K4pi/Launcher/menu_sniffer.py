@@ -9,6 +9,7 @@ from datetime import datetime
 from PIL import Image, ImageTk
 import getpass
 import psutil
+import time
 
 #-----------------------------------------------------------------------#
 #                Configuration Windows, Image, Time                     #
