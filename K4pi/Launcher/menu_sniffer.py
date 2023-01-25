@@ -19,7 +19,7 @@ root = tk.Tk()
 root.title("WiFi Page")
 root.geometry("480x320")
 root.configure(bg="#463E3F")
-#root.attributes("-fullscreen", True)
+root.attributes("-fullscreen", True)
 image = Image.open("desk2.jpg")
 photo = ImageTk.PhotoImage(image)
 label = Label(root, image=photo)
@@ -34,6 +34,17 @@ label2.place(x=4, y=242, width=114, height=74)
 #-----------------------------------------------------------------------#
 #                Configuration functions                                #
 #-----------------------------------------------------------------------#
+
+def process(x, cmd, text):
+    command = str(cmd)
+    text_print = str(text)
+    process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    output, error = process.communicate()
+    x.config(state=NORMAL)
+    #x.delete("1.0", END)
+    x.insert("1.0", text_print)
+    x.insert("1.0", output.decode())
+    x.config(state=DISABLED)
 
 def start():
     timeset = datetime.now()
@@ -59,7 +70,7 @@ def start():
     #output = os.popen("sudo hcxdumptool -i wlan1 -o "+ file_path +" --active_beacon --enable_status=15;bash").read()
     #cmd = "sudo xterm -hold -e 'sudo hcxdumptool -i wlan1 -o " + file_path + " --active_beacon --enable_status=15;bash'"
     #cmd = "sudo hcxdumptool -i wlan0 -o "+ file_path +" --active_beacon --enable_status=15;bash"
-    cmd = "sudo terminator --borderless -f -e 'sudo hcxdumptool -i wlan1 -o "+ file_path +" --active_beacon --enable_status=15;bash'"
+    cmd = "sudo terminator -f -e 'sudo hcxdumptool -i wlan1 -o "+ file_path +" --active_beacon --enable_status=15;bash'"
     #cmd = "sudo gnome-terminal --geometry 354x312+122+4 --hide-menubar -- bash -c 'ls -la; bash'"
     #cmd = "sudo gnome-terminal --geometry 354x312+122+4 --hide-menubar -- bash -c 'sudo /home/Kh4nge/Script/GBLauncher/Python/K4pi/hcxdumptool/hcxdumptool -i wlan1 -o " + file_path + " --active_beacon --enable_status=15; bash'"
     #cmd ="sudo xterm -hold -geometry 60x40+122+4 -e 'ls -la'"
@@ -85,17 +96,6 @@ def stop():
     process(t1, "2>/dev/null", text)
     text2 = "                                           "
     process(t1, "2>/dev/null", text2)
-
-def process(x, cmd, text):
-    command = str(cmd)
-    text_print = str(text)
-    process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    output, error = process.communicate()
-    x.config(state=NORMAL)
-    #x.delete("1.0", END)
-    x.insert("1.0", text_print)
-    x.insert("1.0", output.decode())
-    x.config(state=DISABLED)
 
 #-----------------------------------------------------------------------#
 #                Configuration buttons and Text label                   #
