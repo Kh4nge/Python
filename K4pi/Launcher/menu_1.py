@@ -6,6 +6,7 @@ import tkinter as tk
 from subprocess import Popen
 import os
 from PIL import Image, ImageTk
+from datetime import datetime
 
 #----------------------------------
 # Configuration Windows and Image
