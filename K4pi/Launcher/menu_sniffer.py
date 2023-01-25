@@ -41,7 +41,6 @@ def process(x, cmd, text):
     process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     output, error = process.communicate()
     x.config(state=NORMAL)
-    #x.delete("1.0", END)
     x.insert("1.0", text_print)
     x.insert("1.0", output.decode())
     x.config(state=DISABLED)
