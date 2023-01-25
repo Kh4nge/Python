@@ -51,7 +51,7 @@ def start():
     folder_name = "/home/Kh4nge/dumpfile/"
     text1 = "K4pi >>> Folder create or already exists.  "
     process(t1, "2>/dev/null", text1)
-    time.sleep(1)
+    time.sleep(5)
     os.makedirs(folder_name, 0o777, exist_ok=True)
     file_name = current_time + ".pcapng"
     file_path = os.path.join(folder_name, file_name)
@@ -60,16 +60,16 @@ def start():
     os.chmod(file_path, 0o777)
     text2 = "K4pi >>> File " + file_name + " create.    "
     process(t1, "2>/dev/null", text2)
-    time.sleep(1)
+    time.sleep(5)
     os.system("sudo systemctl stop NetworkManager.service")
     os.system("sudo systemctl stop wpa_supplicant.service")
     text3 = "K4pi >>> Stop Network Service!             "
     process(t1, "2>/dev/null", text3)
-    time.sleep(1)
+    time.sleep(5)
     #output = os.popen("sudo hcxdumptool -i wlan1 -o "+ file_path +" --active_beacon --enable_status=15;bash").read()
     #cmd = "sudo xterm -hold -e 'sudo hcxdumptool -i wlan1 -o " + file_path + " --active_beacon --enable_status=15;bash'"
     #cmd = "sudo hcxdumptool -i wlan0 -o "+ file_path +" --active_beacon --enable_status=15;bash"
-    cmd = "sudo terminator -f -e 'sudo hcxdumptool -i wlan1 -o "+ file_path +" --active_beacon --enable_status=15;bash'"
+    cmd = "sudo terminator -e 'sudo hcxdumptool -i wlan1 -o "+ file_path +" --active_beacon --enable_status=15;bash'"
     #cmd = "sudo gnome-terminal --geometry 354x312+122+4 --hide-menubar -- bash -c 'ls -la; bash'"
     #cmd = "sudo gnome-terminal --geometry 354x312+122+4 --hide-menubar -- bash -c 'sudo /home/Kh4nge/Script/GBLauncher/Python/K4pi/hcxdumptool/hcxdumptool -i wlan1 -o " + file_path + " --active_beacon --enable_status=15; bash'"
     #cmd ="sudo xterm -hold -geometry 60x40+122+4 -e 'ls -la'"
