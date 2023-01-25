@@ -57,16 +57,16 @@ def start():
     process(t1, "2>/dev/null", text3)
     time.sleep(1)
     #output = os.popen("sudo hcxdumptool -i wlan1 -o "+ file_path +" --active_beacon --enable_status=15;bash").read()
-    cmd = "sudo hcxdumptool -i wlan1 -o "+ file_path +" --active_beacon --enable_status=15;bash"
+    #cmd = "sudo xterm -hold -e 'sudo hcxdumptool -i wlan1 -o " + file_path + " --active_beacon --enable_status=15;bash'"
+    #cmd = "sudo hcxdumptool -i wlan0 -o "+ file_path +" --active_beacon --enable_status=15;bash"
     #cmd = "sudo terminator --borderless --geometry 354x312+122+4 -e 'sudo hcxdumptool -i wlan1 -o "+ file_path +" --active_beacon --enable_status=15;bash'"
     #cmd = "sudo gnome-terminal --geometry 354x312+122+4 --hide-menubar -- bash -c 'ls -la; bash'"
     #cmd = "sudo gnome-terminal --geometry 354x312+122+4 --hide-menubar -- bash -c 'sudo /home/Kh4nge/Script/GBLauncher/Python/K4pi/hcxdumptool/hcxdumptool -i wlan1 -o " + file_path + " --active_beacon --enable_status=15; bash'"
-    #os.system(cmd)
+    cmd ="sudo xterm -hold -geometry 60x40+122+4 -e 'ls -la'"
+    os.system(cmd)
     text4 = "K4pi >>> START SCANNER.                    "
     process(t1, "2>/dev/null", text4)
 
-    output = os.system(cmd)
-    t1.config(text=output)
     """
     command = str(cmd)
     process2 = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
