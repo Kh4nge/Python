@@ -27,7 +27,7 @@ label.place(x=0, y=0, width=480, height=320)
 def start():
     timeset = datetime.now()
     current_time = timeset.strftime("%m%d%H%M%S")
-    folder_name = "/home/Kh4nge/dumpfile/"
+    folder_name = "/home/kali/dumpfile/"
     os.makedirs(folder_name, 0o777, exist_ok=True)
     file_name = current_time + ".pcapng"
     file_path = os.path.join(folder_name, file_name)
